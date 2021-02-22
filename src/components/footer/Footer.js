@@ -71,9 +71,6 @@ function Footer({ containerType }) {
                   Đăng ký để nhận thông báo về các sản phẩm mới
                 </p>
                 <FooterSubcribe url="#" />
-                <link rel="preload" href={
-                    process.env.PUBLIC_URL + "/assets/images/footer/payment.png"
-                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/images/footer/payment.png"

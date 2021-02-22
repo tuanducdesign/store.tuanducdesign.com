@@ -59,10 +59,6 @@ function Menu({ containerType }) {
                 className="menu-function-item"
                 onClick={() => setWishlistSidebarOpen(true)}
               >
-                <link rel="preload" href={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/header/menu-wishlist.png"
-                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL +
@@ -76,10 +72,6 @@ function Menu({ containerType }) {
                 className="menu-function-item"
                 onClick={() => setCartSidebarOpen(true)}
               >
-                <link rel="preload" href={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/header/menu-bag.png"
-                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL +
