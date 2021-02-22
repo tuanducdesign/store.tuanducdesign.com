@@ -31,7 +31,6 @@ function TopNav({ containerType }) {
               onChange={onSelectLanguage}
             >
               <Option value="en">English</Option>
-              <Option value="jp">Japanese</Option>
               <Option value="vi">Vietnamese</Option>
             </Select>
             <Select
@@ -41,25 +40,18 @@ function TopNav({ containerType }) {
               onChange={onSelectCurrency}
             >
               <Option value="USD">USD - Dollar</Option>
-              <Option value="JPY">JPY - Yen</Option>
               <Option value="VND">VND - Vietnam dong</Option>
             </Select>
           </div>
           <div className="top-nav-links">
             <div className="top-nav-links__item">
-              <Link href={process.env.PUBLIC_URL + "/#"}>
+              <Link href="mailto:miumiu.official.56@gmail.com" title="Cần trợ giúp">
                 <a>
                   <i className="icon_question_alt2" />
-                  Help
+                  Cần trợ giúp
                 </a>
               </Link>
             </div>
-            <div className="top-nav-links__item">
-              <Link href={process.env.PUBLIC_URL + "/#"}>
-                <a>
-                  <i className="icon_gift" /> Offer
-                </a>
-              </Link>
             </div>
           </div>
         </div>

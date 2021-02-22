@@ -21,7 +21,8 @@ function ZoomImage({ src, alt, disableOnMobile }) {
         backgroundPosition: backgroundPos,
       }}
     >
-      <img src={src} alt={alt} />
+      <link rel="preload" href={src} as="image" />
+      <img src={src} alt={alt} loading="lazy" />
     </figure>
   );
 }

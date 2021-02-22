@@ -13,7 +13,7 @@ function CartSidebar() {
   const globalState = useSelector((state) => state.globalReducer);
   const { currency, locales } = globalState.currency;
   return cartState.length === 0 ? (
-    <Empty description="No products in cart" />
+    <Empty description="Không có sản phẩm trong giỏ hàng" />
   ) : (
     <div className="cart-sidebar">
       <div className="cart-sidebar-products">
@@ -23,15 +23,15 @@ function CartSidebar() {
       </div>
       <div className="cart-sidebar-total">
         <h5>
-          Total:{" "}
+          Số lượng:{" "}
           <span>
             {formatCurrency(calculateTotalPrice(cartState), locales, currency)}
           </span>
         </h5>
         <div className="cart-sidebar-total__buttons">
           <Button type="primary" shape="round">
-            <Link href={process.env.PUBLIC_URL + "/shop/checkout"}>
-              <a>Checkout</a>
+            <Link href={process.env.PUBLIC_URL + "/shop/checkout"} title="Thanh toán">
+              <a>Thanh toán</a>
             </Link>
           </Button>
         </div>

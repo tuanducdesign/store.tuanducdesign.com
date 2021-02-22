@@ -28,7 +28,7 @@ function CartSidebarItem({ data }) {
   const handleOk = (e) => {
     dispatch(removeFromCart(data.cartId));
     setVisible(false);
-    return message.error("Product removed from cart");
+    return message.error("Sản phẩm bị xóa khỏi giỏ hàng");
   };
 
   const handleCancel = (e) => {
@@ -38,13 +38,14 @@ function CartSidebarItem({ data }) {
     <>
       <div className="cart-sidebar-item">
         <div className="cart-sidebar-item__image">
-          <img src={data.thumbImage[0]} alt="Product image" />
+          <link rel="preload" href={data.thumbImage[0]} as="image" />
+          <img src={data.thumbImage[0]} alt={data.name} loading="lazy" />
         </div>
         <div className="cart-sidebar-item__content">
           <Link
             href={process.env.PUBLIC_URL + `/product/[slug]`}
             as={process.env.PUBLIC_URL + `/product/${data.slug}`}
-          >
+          title={data.name}>
             <a>{data.name}</a>
           </Link>
           <h5>
@@ -76,12 +77,12 @@ function CartSidebarItem({ data }) {
         </div>
       </div>
       <Modal
-        title="Cofirm this action"
+        title="Xác nhận hành động này"
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <p>Are your sure to remove product from cart ?</p>
+        <p>Bạn có chắc chắn xóa sản phẩm khỏi giỏ hàng không ?</p>
       </Modal>
     </>
   );

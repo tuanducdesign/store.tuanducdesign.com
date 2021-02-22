@@ -4,7 +4,7 @@ import { Form, Input, Button, Checkbox } from "antd";
 
 const CustomForm = React.memo(({ status, message, onValidated }) => {
   const onFinish = (value) => {
-    console.log("Success:", value);
+    console.log("Thành công:", value);
     value &&
       onValidated({
         EMAIL: value.email,
@@ -12,7 +12,7 @@ const CustomForm = React.memo(({ status, message, onValidated }) => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    console.log("Lỗi:", errorInfo);
   };
 
   return (
@@ -32,23 +32,23 @@ const CustomForm = React.memo(({ status, message, onValidated }) => {
           rules={[
             {
               type: "email",
-              message: "The input is not valid E-mail!",
+              message: "Trường E-mail là bắt buộc!",
             },
             {
               required: true,
-              message: "Please input your E-mail!",
+              message: "Trường E-mail là bắt buộc!",
             },
           ]}
         >
-          <Input placeholder="Your email" />
+          <Input placeholder="Địa chỉ email của bạn" />
         </Form.Item>
         <Form.Item noStyle={true}>
           <Button type="link" htmlType="submit">
-            SUBSCRIBE
+            Đăng ký
           </Button>
         </Form.Item>
       </Form>
-      {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+      {status === "sending" && <div style={{ color: "blue" }}>Đang gửi...</div>}
       {status === "error" && (
         <div
           style={{ color: "red" }}

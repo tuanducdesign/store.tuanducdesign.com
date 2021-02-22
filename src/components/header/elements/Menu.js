@@ -40,31 +40,35 @@ function Menu({ containerType }) {
                 <a>
                   <img
                     src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
-                    alt="Logo"
+                    alt="Logo" loading="lazy"
                   />
                 </a>
               </Link>
             </div>
             <SearchBar
               fillData={productsData}
-              placeholder="What are you looking for ?"
+              placeholder="Bạn cần tìm kiếm sản phầm ?"
             />
             <div className="menu-functions">
               <Button>
-                <Link href="#">
-                  <a>Join now</a>
+                <Link href="#" title="Tham gia ngay">
+                  <a>Tham gia ngay</a>
                 </Link>
               </Button>
               <div
                 className="menu-function-item"
                 onClick={() => setWishlistSidebarOpen(true)}
               >
+                <link rel="preload" href={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/header/menu-wishlist.png"
+                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL +
                     "/assets/images/header/menu-wishlist.png"
                   }
-                  alt=""
+                  alt="Danh sách yêu thích" loading="lazy"
                 />
                 <span>{wishlistState.length}</span>
               </div>
@@ -72,12 +76,16 @@ function Menu({ containerType }) {
                 className="menu-function-item"
                 onClick={() => setCartSidebarOpen(true)}
               >
+                <link rel="preload" href={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/header/menu-bag.png"
+                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL +
                     "/assets/images/header/menu-bag.png"
                   }
-                  alt=""
+                  alt="Giỏ hàng" loading="lazy"
                 />
                 <span>{getTotalProductInCart(cartState)}</span>
               </div>
@@ -87,17 +95,17 @@ function Menu({ containerType }) {
       </div>
       <div className="menu-mobile-search">
         <Container>
-          <SearchBar fillData={productsData} placeholder="Searching..." />
+          <SearchBar fillData={productsData} placeholder="Tìm kiếm..." />
         </Container>
       </div>
       <Drawer
         placement="right"
-        title={`Wishlist (${wishlistState.length})`}
+        title={`Yêu thích (${wishlistState.length})`}
         closable={true}
         onClose={() => setWishlistSidebarOpen(false)}
         closeIcon={
           <>
-            <p>Close</p> <CloseOutlined />
+            <p>Đóng</p> <CloseOutlined />
           </>
         }
         visible={wishlistSidebarOpen}
@@ -108,12 +116,12 @@ function Menu({ containerType }) {
       </Drawer>
       <Drawer
         placement="right"
-        title={`Shopping cart (${getTotalProductInCart(cartState)})`}
+        title={`Giỏ hàng (${getTotalProductInCart(cartState)})`}
         closable={true}
         onClose={() => setCartSidebarOpen(false)}
         closeIcon={
           <>
-            <p>Close</p> <CloseOutlined />
+            <p>Đóng</p> <CloseOutlined />
           </>
         }
         visible={cartSidebarOpen}
@@ -129,7 +137,7 @@ function Menu({ containerType }) {
         onClose={() => setMenuSidebarOpen(false)}
         closeIcon={
           <>
-            <p>Close</p> <CloseOutlined />
+            <p>Đóng</p> <CloseOutlined />
           </>
         }
         visible={menuSidebarOpen}

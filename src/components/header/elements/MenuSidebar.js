@@ -22,80 +22,14 @@ function MenuSidebar() {
   return (
     <div className="menu-sidebar">
       <Menu mode="inline">
-        <SubMenu key="sub1" title="Homepages">
-          <Menu.Item key="1">
-            <Link href={process.env.PUBLIC_URL + "/"}>
-              <a>Homepage 1</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link href={process.env.PUBLIC_URL + "/homepage2"}>
-              <a>Homepage 2</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Link href={process.env.PUBLIC_URL + "/homepage3"}>
-              <a>Homepage 3</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Link href={process.env.PUBLIC_URL + "/homepage4"}>
-              <a>Homepage 4</a>
-            </Link>
-          </Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" title="Shop">
-          <SubMenu key="sub2-1" title="Shop detail">
-            <Menu.Item key="5">
-              <Link
-                href={
-                  process.env.PUBLIC_URL +
-                  "/shop/product-detail/product-detail-1"
-                }
-              >
-                <a>Product Detail 1</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="6">
-              <Link
-                href={
-                  process.env.PUBLIC_URL +
-                  "/shop/product-detail/product-detail-2"
-                }
-              >
-                <a>Product Detail 2</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="7">
-              <Link
-                href={
-                  process.env.PUBLIC_URL +
-                  "/shop/product-detail/product-detail-3"
-                }
-              >
-                <a>Product Detail 3</a>
-              </Link>
-            </Menu.Item>
-          </SubMenu>
-          <Menu.Item key="8">
-            <Link href={process.env.PUBLIC_URL + "/shop/checkout"}>
-              <a>Checkout</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="9">
-            <Link href={process.env.PUBLIC_URL + "/shop/checkout-complete"}>
-              <a>Checkout Complete</a>
-            </Link>
-          </Menu.Item>
-        </SubMenu>
-        <Menu.Item key="10">
-          <Link href={process.env.PUBLIC_URL + "#"}>
-            <a>Help</a>
+        <Menu.Item key="1">
+          <Link href={process.env.PUBLIC_URL + "/"} title="Trang chủ">
+            <a>Trang chủ</a>
           </Link>
         </Menu.Item>
-        <Menu.Item key="11">
-          <Link href={process.env.PUBLIC_URL + "#"}>
-            <a>Offer</a>
+        <Menu.Item key="2">
+          <Link href="https://tuanducdesign.com/" title="Blog">
+            <a>Blog</a>
           </Link>
         </Menu.Item>
       </Menu>
@@ -107,7 +41,6 @@ function MenuSidebar() {
           onChange={onSelectLanguage}
         >
           <Option value="en">English</Option>
-          <Option value="jp">Japanese</Option>
           <Option value="vi">Vietnamese</Option>
         </Select>
         <Select
@@ -117,7 +50,6 @@ function MenuSidebar() {
           onChange={onSelectCurrency}
         >
           <Option value="USD">USD - Dollar</Option>
-          <Option value="JPY">JPY - Yen</Option>
           <Option value="VND">VND - Vietnam dong</Option>
         </Select>
       </div>

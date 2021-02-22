@@ -14,20 +14,23 @@ function Footer({ containerType }) {
           <Row justify="center" gutter={30}>
             <Col className="gutter-row" span="24" sm={12} lg={8}>
               <div className="footer-top-item -col-one">
+                <link rel="preload" href={
+                        process.env.PUBLIC_URL + "/assets/images/logo-dark.png"
+                      } as="image" />
                 <Link href="#">
                   <a>
                     <img
                       src={
                         process.env.PUBLIC_URL + "/assets/images/logo-dark.png"
                       }
-                      alt="Logo"
+                      alt="Logo" loading="lazy"
                     />
                   </a>
                 </Link>
-                <p>7176 Blue Spring Lane Santa Monica, CA 90403</p>
+                <p>Liên hệ thiết kế & tối ưu website</p>
                 <ul>
-                  <li>hi.avitex@gmail.com</li>
-                  <li>+01 123 456 888</li>
+                  <li>mail: miumiu.official.56@gmail.com</li>
+                  <li>fb: tuanduc.support</li>
                 </ul>
               </div>
             </Col>
@@ -35,11 +38,11 @@ function Footer({ containerType }) {
               <div className="footer-top-item -col-two">
                 <Row gutter={30}>
                   <Col className="gutter-row" span={12}>
-                    <h5 className="footer-title">Information</h5>
+                    <h5 className="footer-title">Thông tin</h5>
                     <ul>
                       {links.information.map((item, index) => (
                         <li key={index}>
-                          <Link href="#">
+                          <Link href="#" title={item.name}>
                             <a>{item.name}</a>
                           </Link>
                         </li>
@@ -47,11 +50,11 @@ function Footer({ containerType }) {
                     </ul>
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    <h5 className="footer-title">My account</h5>
+                    <h5 className="footer-title">Tài khoản của tôi</h5>
                     <ul>
                       {links.account.map((item, index) => (
                         <li key={index}>
-                          <Link href="#">
+                          <Link href="#" title={item.name}>
                             <a>{item.name}</a>
                           </Link>
                         </li>
@@ -63,17 +66,19 @@ function Footer({ containerType }) {
             </Col>
             <Col className="gutter-row" span="24" sm={18} lg={8}>
               <div className="footer-top-item -col-three">
-                <h5 className="footer-title">Subscribe to our Newsletter</h5>
+                <h5 className="footer-title">Đăng ký nhận sản phẩm mới</h5>
                 <p>
-                  Subscribe to our newsletter and get 10% off your first
-                  purchase
+                  Đăng ký để nhận thông báo về các sản phẩm mới
                 </p>
-                <FooterSubcribe url="https://jster.us7.list-manage.com/subscribe/post?u=ed40c0084a0c5ba31b3365d65&id=ec6f32bf5e" />
+                <FooterSubcribe url="#" />
+                <link rel="preload" href={
+                    process.env.PUBLIC_URL + "/assets/images/footer/payment.png"
+                  } as="image" />
                 <img
                   src={
                     process.env.PUBLIC_URL + "/assets/images/footer/payment.png"
                   }
-                  alt="Payment methods"
+                  alt="Phương thức thanh toán" loading="lazy"
                 />
               </div>
             </Col>
@@ -82,7 +87,7 @@ function Footer({ containerType }) {
       </div>
       <div className="footer-bottom">
         <Container type={containerType}>
-          <p>Copyright © 2020 Avitex Inc. All rights reserved</p>
+          <p>© Store Tuan Duc Design</p>
         </Container>
       </div>
     </div>

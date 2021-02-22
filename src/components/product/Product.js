@@ -31,11 +31,11 @@ function Product({ data, productStyle }) {
   }, [globalState.category]);
   const renderProductType = () => {
     if (data.discount && !data.isNew) {
-      return <p className="product-type -sale">Sale</p>;
+      return <p className="product-type -sale">Giảm giá</p>;
     } else if (data.isNew && !data.discount) {
-      return <p className="product-type -new">New</p>;
+      return <p className="product-type -new">Hàng mới</p>;
     } else if (data.isNew && data.discount) {
-      return <p className="product-type -new">New</p>;
+      return <p className="product-type -new">Hàng mới</p>;
     } else {
       return null;
     }
@@ -46,15 +46,15 @@ function Product({ data, productStyle }) {
       return;
     }
     dispatch(addToCart(data, 1, "none", "none"));
-    message.success("Product added to cart successfully");
+    message.success("Sản phẩm được thêm vào giỏ hàng thành công");
   };
   const onAddToWishlist = (data) => {
     if (productInWishlist) {
       dispatch(removeFromWishlist(data.id));
-      return message.error("Product removed from wishlist");
+      return message.error("Sản phẩm bị xóa khỏi danh sách yêu thích");
     } else {
       dispatch(addToWishlist(data));
-      return message.success("Product added to wishlist successfully");
+      return message.success("Sản phẩm được thêm vào danh sách yêu thích thành công");
     }
   };
   const renderStyleClass = () => {
@@ -89,11 +89,13 @@ function Product({ data, productStyle }) {
             <a className={classNames({ loading: imageLoading })}>
               {data.thumbImage &&
                 data.thumbImage.map((item, index) => (
+                  <link rel="preload" href={item} as="image" />
                   <img
                     onLoad={handleImageLoaded}
                     key={index}
                     src={item}
-                    alt="Product image"
+                    alt="Ảnh sản phẩm"
+                    loading="lazy"
                   />
                 ))}
             </a>
@@ -106,14 +108,14 @@ function Product({ data, productStyle }) {
           {renderProductType()}
           {productStyle === "two" ? (
             <div className="product-button-group">
-              <Tooltip title="Quick view">
+              <Tooltip title="Xem nhanh">
                 <Button onClick={showModal} type="text">
                   <i className="icon_search" />
                 </Button>
               </Tooltip>
               <Tooltip
                 title={
-                  productInWishlist ? "Remove from wishlist" : "Add to wishlist"
+                  productInWishlist ? "Xóa khỏi danh sách yêu thích" : "Thêm vào danh sách yêu thích"
                 }
               >
                 <Button
@@ -126,7 +128,7 @@ function Product({ data, productStyle }) {
                   <i className="icon_heart_alt" />
                 </Button>
               </Tooltip>
-              <Tooltip title="Add to cart">
+              <Tooltip title="Thêm vào giỏ hàng">
                 <Button
                   disabled={avaiableQuantity === 0}
                   type="text"
@@ -142,7 +144,7 @@ function Product({ data, productStyle }) {
               <Tooltip
                 placement="left"
                 title={
-                  productInWishlist ? "Remove from wishlist" : "Add to wishlist"
+                 productInWishlist ? "Xóa khỏi danh sách yêu thích" : "Thêm vào danh sách yêu thích"
                 }
               >
                 <Button
@@ -158,7 +160,7 @@ function Product({ data, productStyle }) {
               </Tooltip>
 
               <Button onClick={showModal} className="product-qv">
-                Quick view
+                Xem nhanh
               </Button>
             </>
           ) : null}
@@ -167,6 +169,7 @@ function Product({ data, productStyle }) {
           <Link
             href={process.env.PUBLIC_URL + `/product/[slug]`}
             as={process.env.PUBLIC_URL + `/product/${data.slug}`}
+            title={data.name}
           >
             <a className="product-name">{data.name}</a>
           </Link>
@@ -190,7 +193,7 @@ function Product({ data, productStyle }) {
               )}
             </div>
             {!productStyle || productStyle === "one" ? (
-              <Tooltip title="Add to cart">
+              <Tooltip title="Thêm vào giỏ hàng">
                 <Button
                   disabled={avaiableQuantity === 0}
                   className="product-atc"
@@ -206,7 +209,7 @@ function Product({ data, productStyle }) {
           {productStyle === "three" ? (
             <div className="product-button-group">
               <div className="product-button-group__wrapper">
-                <Tooltip placement="top" title="Quick view">
+                <Tooltip placement="top" title="Xem nhanh">
                   <Button onClick={showModal} shape="circle">
                     <i className="icon_search" />
                   </Button>
@@ -215,8 +218,8 @@ function Product({ data, productStyle }) {
                   placement="top"
                   title={
                     productInWishlist
-                      ? "Remove from wishlist"
-                      : "Add to wishlist"
+                      ? "Xoá khỏi danh sách yêu thích"
+                      : "Thêm vào danh sách yêu thích"
                   }
                 >
                   <Button
@@ -229,7 +232,7 @@ function Product({ data, productStyle }) {
                     <i className="icon_heart_alt" />
                   </Button>
                 </Tooltip>
-                <Tooltip placement="top" title="Add to cart">
+                <Tooltip placement="top" title="Thêm vào giỏ hàng">
                   <Button
                     disabled={avaiableQuantity === 0}
                     shape="circle"
